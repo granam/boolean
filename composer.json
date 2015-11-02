@@ -23,13 +23,11 @@
   },
   "require": {
     "php": ">=5.4",
-    "granam/scalar": "dev-master",
-    "granam/exception-hierarchy": "dev-master"
+    "granam/scalar": "~1.1",
+    "granam/exception-hierarchy": "~2.3"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.4",
     "mockery/mockery": ">=0.9"
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+  }
 }
