@@ -15,7 +15,7 @@ class ToBoolean
     {
         $value = self::convertToScalar($value, $strict);
 
-        return boolval($value);
+        return (bool)$value;
     }
 
     private static function convertToScalar($value, $strict)
