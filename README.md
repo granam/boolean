@@ -2,6 +2,9 @@
 
 [![Build Status](https://travis-ci.org/jaroslavtyc/granam-boolean.svg?branch=master)](https://travis-ci.org/jaroslavtyc/granam-boolean)
 
+## Hint
+First of all, make sure you don't need just a [simple  built-in bool validation](http://php.net/manual/en/function.filter-var.php).
+
 Note: requires PHP 5.4+
 
 Internally behaves same way as (bool)$value, but
