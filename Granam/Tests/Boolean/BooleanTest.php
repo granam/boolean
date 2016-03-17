@@ -1,17 +1,10 @@
 <?php
-namespace Granam\Boolean;
+namespace Granam\Tests\Boolean;
+
+use Granam\Boolean\Boolean;
 
 class BooleanTest extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * @test
-     */
-    public function I_can_create_boolean_object()
-    {
-        $booleanObject = new Boolean(true);
-        $this->assertNotNull($booleanObject);
-        $this->assertInstanceOf('Granam\Boolean\BooleanInterface', $booleanObject);
-    }
 
     /**
      * @test
@@ -19,19 +12,19 @@ class BooleanTest extends \PHPUnit_Framework_TestCase
     public function I_can_get_value()
     {
         $withFalse = new Boolean($false = false);
-        $this->assertSame($false, $withFalse->getValue());
-        $this->assertSame((string)$false, (string)$withFalse);
-        $this->assertSame('', (string)$withFalse);
+        self::assertFalse($withFalse->getValue());
+        self::assertSame((string)$false, (string)$withFalse);
+        self::assertSame('', (string)$withFalse);
         $withTrue = new Boolean($true = true);
-        $this->assertSame($true, $withTrue->getValue());
-        $this->assertSame((string)$true, (string)$withTrue);
-        $this->assertSame('1', (string)$withTrue);
+        self::assertTrue($withTrue->getValue());
+        self::assertSame((string)$true, (string)$withTrue);
+        self::assertSame('1', (string)$withTrue);
         $withString = new Boolean($stringValue = '');
-        $this->assertSame((bool)$stringValue, $withString->getValue());
-        $this->assertSame($stringValue, (string)$withString);
+        self::assertSame((bool)$stringValue, $withString->getValue());
+        self::assertSame($stringValue, (string)$withString);
         $withInteger = new Boolean($integerValue = 123456);
-        $this->assertSame('1', (string)$withInteger);
-        $this->assertSame(true, $withInteger->getValue());
+        self::assertSame('1', (string)$withInteger);
+        self::assertTrue(true, $withInteger->getValue());
     }
 
     /**
@@ -40,9 +33,9 @@ class BooleanTest extends \PHPUnit_Framework_TestCase
     public function I_can_use_any_number()
     {
         foreach ([1.0, -2.36, 99.99, 8, -55] as $value) {
-            $boolean = new Boolean($value );
-            $this->assertSame(true, $boolean->getValue());
-            $this->assertSame((bool)$value, $boolean->getValue());
+            $boolean = new Boolean($value);
+            self::assertTrue($boolean->getValue());
+            self::assertSame((bool)$value, $boolean->getValue());
         }
     }
 
@@ -52,11 +45,11 @@ class BooleanTest extends \PHPUnit_Framework_TestCase
     public function I_can_use_zero_to_get_false()
     {
         $boolean = new Boolean($integerZero = 0);
-        $this->assertSame(false, $boolean->getValue());
-        $this->assertSame((bool)$integerZero, $boolean->getValue());
+        self::assertFalse($boolean->getValue());
+        self::assertSame((bool)$integerZero, $boolean->getValue());
         $boolean = new Boolean($floatZero = 0.0);
-        $this->assertSame(false, $boolean->getValue());
-        $this->assertSame((bool)$floatZero, $boolean->getValue());
+        self::assertFalse($boolean->getValue());
+        self::assertSame((bool)$floatZero, $boolean->getValue());
     }
 
     /**
@@ -65,8 +58,8 @@ class BooleanTest extends \PHPUnit_Framework_TestCase
     public function I_can_use_null_as_false_if_not_strict()
     {
         $boolean = new Boolean(null);
-        $this->assertSame(false, $boolean->getValue());
-        $this->assertSame((bool)null, $boolean->getValue());
+        self::assertFalse($boolean->getValue());
+        self::assertSame((bool)null, $boolean->getValue());
     }
 
     /**
@@ -111,19 +104,19 @@ class BooleanTest extends \PHPUnit_Framework_TestCase
     public function I_can_use_to_string_object()
     {
         $boolean = new Boolean(new TestWithToString($integerZero = 0));
-        $this->assertSame((bool)$integerZero, $boolean->getValue());
+        self::assertSame((bool)$integerZero, $boolean->getValue());
         $boolean = new Boolean(new TestWithToString($integer = 12345));
-        $this->assertSame((bool)$integer, $boolean->getValue());
+        self::assertSame((bool)$integer, $boolean->getValue());
         $stringBoolean = new Boolean(new TestWithToString($stringInteger = '98765'));
-        $this->assertSame((bool)$stringInteger, $stringBoolean->getValue());
+        self::assertSame((bool)$stringInteger, $stringBoolean->getValue());
         $floatBoolean = new Boolean(new TestWithToString($float = 123.456));
-        $this->assertSame((bool)$float, $floatBoolean->getValue());
+        self::assertSame((bool)$float, $floatBoolean->getValue());
         $stringFloatBoolean = new Boolean(new TestWithToString($stringFloat = '987.654'));
-        $this->assertSame((bool)$stringFloat, $stringFloatBoolean->getValue());
+        self::assertSame((bool)$stringFloat, $stringFloatBoolean->getValue());
         $stringFloatBoolean = new Boolean(new TestWithToString($emptyString = ''));
-        $this->assertSame((bool)$emptyString, $stringFloatBoolean->getValue());
+        self::assertSame((bool)$emptyString, $stringFloatBoolean->getValue());
         $stringFloatBoolean = new Boolean(new TestWithToString($someString = 'foo'));
-        $this->assertSame((bool)$someString, $stringFloatBoolean->getValue());
+        self::assertSame((bool)$someString, $stringFloatBoolean->getValue());
     }
 }
 

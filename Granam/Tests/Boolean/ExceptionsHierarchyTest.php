@@ -1,18 +1,18 @@
 <?php
-namespace Granam\Boolean;
+namespace Granam\Tests\Boolean;
 
-use Granam\Exceptions\Tests\Tools\AbstractTestOfExceptionsHierarchy;
+use Granam\Tests\Exceptions\Tools\AbstractExceptionsHierarchyTest;
 
-class ExceptionHierarchyTest extends AbstractTestOfExceptionsHierarchy
+class ExceptionsHierarchyTest extends AbstractExceptionsHierarchyTest
 {
     protected function getTestedNamespace()
     {
-        return __NAMESPACE__;
+        return $this->getRootNamespace();
     }
 
     protected function getRootNamespace()
     {
-        return $this->getTestedNamespace();
+        return str_replace('\Tests', '', __NAMESPACE__);
     }
 
     protected function getExternalRootNamespace()
