@@ -12,6 +12,10 @@ class BooleanInterfaceTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function inherits_from_scalar_interface()
     {
-        self::assertTrue(is_a('Granam\Boolean\BooleanInterface', 'Granam\Scalar\ScalarInterface', true /* allow string as tested class name*/));
+        self::assertTrue(is_a(
+            'Granam\Boolean\BooleanInterface',
+            'Granam\Scalar\ScalarInterface',
+            true /* allow string as tested class name*/
+        ));
     }
 }
