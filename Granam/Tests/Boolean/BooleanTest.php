@@ -57,9 +57,18 @@ class BooleanTest extends \PHPUnit_Framework_TestCase
      */
     public function I_can_use_null_as_false_if_not_strict()
     {
-        $boolean = new Boolean(null);
+        $boolean = new Boolean(null, false /* not strict */);
         self::assertFalse($boolean->getValue());
         self::assertSame((bool)null, $boolean->getValue());
+    }
+
+    /**
+     * @test
+     * @expectedException \Granam\Boolean\Tools\Exceptions\WrongParameterType
+     */
+    public function I_can_not_use_null_by_default()
+    {
+        new Boolean(null);
     }
 
     /**

@@ -1,6 +1,8 @@
 <?php
 namespace Granam\Tests\Boolean\Tools;
 
+use Granam\Boolean\Boolean;
+use Granam\Scalar\Scalar;
 use Granam\Tests\Exceptions\Tools\AbstractExceptionsHierarchyTest;
 
 class ExceptionsHierarchyTest extends AbstractExceptionsHierarchyTest
@@ -12,14 +14,14 @@ class ExceptionsHierarchyTest extends AbstractExceptionsHierarchyTest
 
     protected function getRootNamespace()
     {
-        $rootReflection = new \ReflectionClass('\Granam\Boolean\Boolean');
+        $rootReflection = new \ReflectionClass(Boolean::getClass());
 
         return $rootReflection->getNamespaceName();
     }
 
     protected function getExternalRootNamespace()
     {
-        $scalarReflection = new \ReflectionClass('\Granam\Scalar\Scalar');
+        $scalarReflection = new \ReflectionClass(Scalar::getClass());
 
         return $scalarReflection->getNamespaceName();
     }

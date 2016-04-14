@@ -9,9 +9,9 @@ class Boolean extends Scalar implements BooleanInterface
 
     /**
      * @param mixed $value
-     * @param bool $strict
+     * @param bool $strict = true Can suppress raising of an exception on NULL
      */
-    public function __construct($value, $strict = false)
+    public function __construct($value, $strict = true)
     {
         parent::__construct(ToBoolean::toBoolean($value, $strict));
     }
