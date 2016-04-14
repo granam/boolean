@@ -10,14 +10,20 @@ class ToBoolean
      * @param bool $strict = false Can force NULL to be refused by raising an exception
      *
      * @return bool
+     * @throws \Granam\Boolean\Tools\Exceptions\WrongParameterType
      */
     public static function toBoolean($value, $strict = false)
     {
-        $value = self::convertToScalar($value, $strict);
-
-        return (bool)$value;
+        return (bool)self::convertToScalar($value, $strict);
     }
 
+    /**
+     * @param $value
+     * @param bool $strict
+     *
+     * @return float|int|null|string
+     * @throws \Granam\Boolean\Tools\Exceptions\WrongParameterType
+     */
     private static function convertToScalar($value, $strict)
     {
         try {
