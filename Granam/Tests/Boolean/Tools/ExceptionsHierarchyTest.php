@@ -19,7 +19,7 @@ class ExceptionsHierarchyTest extends AbstractExceptionsHierarchyTest
         return $rootReflection->getNamespaceName();
     }
 
-    protected function getExternalRootNamespace()
+    protected function getExternalRootNamespaces()
     {
         $scalarReflection = new \ReflectionClass(Scalar::getClass());
 
