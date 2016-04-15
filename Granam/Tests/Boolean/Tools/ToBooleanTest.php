@@ -47,8 +47,17 @@ class ToBooleanTest extends \PHPUnit_Framework_TestCase
      */
     public function I_can_use_null_as_false_if_not_strict()
     {
-        self::assertFalse(ToBoolean::toBoolean(null));
-        self::assertSame((bool)null, ToBoolean::toBoolean(null));
+        self::assertFalse(ToBoolean::toBoolean(null, false /* not strict */));
+        self::assertSame((bool)null, ToBoolean::toBoolean(null, false /* not strict */));
+    }
+
+    /**
+     * @test
+     * @expectedException \Granam\Boolean\Tools\Exceptions\WrongParameterType
+     */
+    public function I_can_not_use_null_by_default()
+    {
+        ToBoolean::toBoolean(null);
     }
 
     /**
