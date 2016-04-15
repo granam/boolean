@@ -13,10 +13,14 @@ class ToBooleanTest extends \PHPUnit_Framework_TestCase
     {
         self::assertFalse(ToBoolean::toBoolean(false));
         self::assertTrue(ToBoolean::toBoolean(true));
-        $emptyString = '';
-        self::assertSame((bool)$emptyString, ToBoolean::toBoolean($emptyString));
-        $integerValue = 123456;
-        self::assertSame((bool)$integerValue, ToBoolean::toBoolean($integerValue));
+        self::assertFalse(ToBoolean::toBoolean(''));
+        self::assertTrue(ToBoolean::toBoolean(123456));
+
+        self::assertTrue((bool)'0.0');
+        self::assertTrue(ToBoolean::toBoolean('0.0'));
+
+        self::assertTrue((bool)"\n");
+        self::assertTrue(ToBoolean::toBoolean("\n"));
     }
 
     /**
