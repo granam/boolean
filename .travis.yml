@@ -12,9 +12,12 @@ matrix:
     - php: nightly
 
 before_script:
-  - if [[ $TRAVIS_PHP_VERSION =~ ^[0-9]+[.][0-9]+$ ]]; then phpenv config-rm xdebug.ini; fi
   - composer selfupdate
   - composer update --no-interaction --prefer-dist
+  - composer require codeclimate/php-test-reporter:@dev --dev
 
 script:
   - ./vendor/phpunit/phpunit/phpunit -v
+
+after_script:
+  - CODECLIMATE_REPO_TOKEN=f04d9b628e8b1580f0662ec0287486bd36619c75b61d55e3861795bcaec541ed ./vendor/bin/test-reporter
