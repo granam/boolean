@@ -1,6 +1,7 @@
 # Converter and object wrapper for an boolean
 
 [![Build Status](https://travis-ci.org/jaroslavtyc/granam-boolean.svg?branch=master)](https://travis-ci.org/jaroslavtyc/granam-boolean)
+[![Test Coverage](https://codeclimate.com/github/jaroslavtyc/granam-boolean/badges/coverage.svg)](https://codeclimate.com/github/jaroslavtyc/granam-boolean/coverage)
 
 ## Hint
 First of all, make sure you don't need just a [simple  built-in bool validation](http://php.net/manual/en/function.filter-var.php).
@@ -15,7 +16,6 @@ Internally behaves same way as (bool)$value, but
 ```php
 <?php
 use Granam\Boolean\Boolean;
-use Granam\Boolean\Tools\Exceptions\WrongParameterType;
 
 $booleanFromInteger = new Boolean(12345);
 // bool(true)
@@ -39,6 +39,6 @@ var_dump($booleanFromNull->getValue());
 // ...
 
 // exception is raised (\Granam\Boolean\Tools\Exceptions\WrongParameterType)
-new Boolean(null, true /\* strict \*/);
+new Boolean(null, true /* strict */);
 
 ```
