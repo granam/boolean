@@ -14,14 +14,14 @@ class ExceptionsHierarchyTest extends AbstractExceptionsHierarchyTest
 
     protected function getRootNamespace()
     {
-        $rootReflection = new \ReflectionClass(Boolean::getClass());
+        $rootReflection = new \ReflectionClass(Boolean::class);
 
         return $rootReflection->getNamespaceName();
     }
 
     protected function getExternalRootNamespaces()
     {
-        $scalarReflection = new \ReflectionClass(Scalar::getClass());
+        $scalarReflection = new \ReflectionClass(Scalar::class);
 
         return $scalarReflection->getNamespaceName();
     }
