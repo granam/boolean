@@ -2,8 +2,9 @@
 namespace Granam\Tests\Boolean;
 
 use Granam\Boolean\Boolean;
+use PHPUnit\Framework\TestCase;
 
-class BooleanTest extends \PHPUnit_Framework_TestCase
+class BooleanTest extends TestCase
 {
 
     /**

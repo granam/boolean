@@ -2,8 +2,9 @@
 namespace Granam\Tests\Boolean;
 
 use Granam\Boolean\Tools\ToBoolean;
+use PHPUnit\Framework\TestCase;
 
-class ToBooleanTest extends \PHPUnit_Framework_TestCase
+class ToBooleanTest extends TestCase
 {
 
     /**
