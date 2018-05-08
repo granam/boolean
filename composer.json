@@ -29,5 +29,7 @@
     "phpunit/phpunit": "~6.0",
     "mockery/mockery": "~1.0",
     "granam/exceptions-hierarchy": "~4.0"
-  }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
