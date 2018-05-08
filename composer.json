@@ -23,7 +23,7 @@
   },
   "require": {
     "php": ">=7.1",
-    "granam/scalar": "^3.0"
+    "granam/scalar": "dev-master"
   },
   "require-dev": {
     "phpunit/phpunit": "~6.0",
