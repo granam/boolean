@@ -8,5 +8,5 @@ interface BooleanInterface extends ScalarInterface
     /**
      * @return bool
      */
-    public function getValue();
+    public function getValue(): bool;
 }
